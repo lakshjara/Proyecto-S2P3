@@ -16,6 +16,6 @@ Este proyecto ayuda a:
 
 La clase Agenda actúa como el núcleo del sistema, gestionando una colección de contactos.
 
-Cada Contacto está compuesto por un Nombre, Teléfono, correo y Direccion, lo que permite modularidad y reutilización de código.
+Cada Contacto está compuesto por un Nombre, Teléfono, Correo y Dirección, lo que permite modularidad y reutilización de código.
 
 Buscador implementa herramientas para localizar contactos eficientemente, apoyando la experiencia del usuario.
