@@ -19,3 +19,12 @@ La clase Agenda actúa como el núcleo del sistema, gestionando una colección d
 Cada Contacto está compuesto por un Nombre, Teléfono, Correo y Dirección, lo que permite modularidad y reutilización de código.
 
 Buscador implementa herramientas para localizar contactos eficientemente, apoyando la experiencia del usuario.
+
+### Potenciales errores
+- Error al buscar o eliminar contactos cuando el contacto no existe y el programa intenta acceder a él sin verificar.
+- Contacto mal creado o incompleto si faltan datos obligatorios como nombre, teléfono o correo.
+- Datos duplicados: se permiten contactos con el mismo nombre o correo, causando conflictos en búsqueda o edición.
+- Fallas de entrada/salida, como error al cargar o guardar datos, o que los datos estén incorrectos o dañados.
+- Intentar usar una clase que no está correctamente conectada.
+- Entrada de usuario no validada: ingreso de texto en vez de número para el teléfono o campos vacíos que causan errores de ejecución.
+
