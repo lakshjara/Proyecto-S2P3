@@ -1,0 +1,169 @@
+#include <iostream>
+using namespace std;
+
+class Telefono {
+private:
+    string numero;
+    string tipo;
+public:
+    Telefono() {}
+    Telefono(string num, string t): numero(num), tipo(t) {}
+
+    string getNumero() { return numero; }
+    string getTipo() { return tipo; }
+
+    void setNumero(string nuevo) { numero = nuevo; }
+    void setTipo(string nuevo) { tipo = nuevo; }
+};
+
+class Direccion {
+private:
+    string calle, ciudad, estado, codigoPostal;
+public:
+    Direccion() {}
+    Direccion(string c, string ci, string e, string cp): calle(c), ciudad(ci), estado(e), codigoPostal(cp) {}
+
+    string getCalle() { return calle; }
+    string getCiudad() { return ciudad; }
+    string getEstado() { return estado; }
+    string getCodigoPostal() { return codigoPostal; }
+};
+
+class Contacto {
+private:
+    string nombre;
+    string correo;
+    Telefono telefono;
+    Direccion direccion;
+
+public:
+    Contacto() {}
+    Contacto(string n, string c, Telefono t, Direccion d): nombre(n), correo(c), telefono(t), direccion(d) {}
+
+    string getNombre() { return nombre; }
+    string getCorreo() { return correo; }
+    Telefono getTelefono() { return telefono; }
+    Direccion getDireccion() { return direccion; }
+
+    void setNombre(string nuevo) { nombre = nuevo; }
+    void setCorreo(string nuevo) { correo = nuevo; }
+    void setTelefono(Telefono t) { telefono = t; }
+    void setDireccion(Direccion d) { direccion = d; }
+
+    void mostrarContacto() {
+        cout << "Nombre: " << nombre << endl;
+        cout << "Correo: " << correo << endl;
+        cout << "Telefono: " << telefono.getNumero() << " (" << telefono.getTipo() << ")" << endl;
+        cout << "Direccion: " << direccion.getCalle() << ", " << direccion.getCiudad()
+             << ", " << direccion.getEstado() << ", CP " << direccion.getCodigoPostal() << endl;
+        cout << "----------------------------" << endl;
+    }
+};
+
+#include <vector>
+
+class Agenda {
+private:
+    vector<Contacto> contactos;
+
+public:
+    void agregarContacto(Contacto c) {
+        contactos.push_back(c);
+    }
+
+    void mostrarContactos() {
+        for (auto& c : contactos)
+            c.mostrarContacto();
+    }
+
+    void buscarPorNombre(string nombre) {
+        for (auto& c : contactos) {
+            if (c.getNombre() == nombre) {
+                cout << "Contacto encontrado:" << endl;
+                c.mostrarContacto();
+                return;
+            }
+        }
+        cout << "No se encontró el contacto con nombre: " << nombre << endl;
+    }
+
+    void eliminarContacto(string nombre) {
+        for (auto it = contactos.begin(); it != contactos.end(); ++it) {
+            if (it->getNombre() == nombre) {
+                contactos.erase(it);
+                cout << "Contacto eliminado.\n";
+                return;
+            }
+        }
+        cout << "Contacto no encontrado.\n";
+    }
+
+    void editarContacto(string nombre) {
+        for (auto& c : contactos) {
+            if (c.getNombre() == nombre) {
+                string nuevoCorreo;
+                cout << "Nuevo correo para " << nombre << ": ";
+                cin >> nuevoCorreo;
+                c.setCorreo(nuevoCorreo);
+                cout << "Correo actualizado.\n";
+                return;
+            }
+        }
+        cout << "Contacto no encontrado.\n";
+    }
+
+    vector<Contacto> getContactos() { return contactos; }
+};
+
+class Buscador {
+public:
+    void buscarPorCorreo(vector<Contacto> contactos, string correo) {
+        for (auto& c : contactos) {
+            if (c.getCorreo() == correo) {
+                c.mostrarContacto();
+                return;
+            }
+        }
+        cout << "No se encontró contacto con ese correo.\n";
+    }
+
+    void buscarPorTelefono(vector<Contacto> contactos, string telefono) {
+        for (auto& c : contactos) {
+            if (c.getTelefono().getNumero() == telefono) {
+                c.mostrarContacto();
+                return;
+            }
+        }
+        cout << "No se encontró contacto con ese teléfono.\n";
+    }
+};
+
+int main() {
+    Agenda agenda;
+
+    // Creamos datos de ejemplo
+    Telefono tel1("1234567890", "Celular");
+    Direccion dir1("Calle Falsa 123", "Ciudad X", "Estado Y", "12345");
+    Contacto c1("Juan Perez", "juan@mail.com", tel1, dir1);
+
+    agenda.agregarContacto(c1);
+
+    // Mostramos los contactos
+    agenda.mostrarContactos();
+
+    // Buscamos por nombre
+    agenda.buscarPorNombre("Luis Miguel");
+
+    // Editamos el correo
+    agenda.editarContacto("Luis Miguel");
+
+    // Eliminamos
+    agenda.eliminarContacto("Luis Miguel");
+
+    // Usamos el buscador
+    Buscador b;
+    b.buscarPorCorreo(agenda.getContactos(), "luismi@mail.com");
+
+    return 0;
+}
+
