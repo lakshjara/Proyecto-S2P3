@@ -28,3 +28,25 @@ Buscador implementa herramientas para localizar contactos eficientemente, apoyan
 - Intentar usar una clase que no está correctamente conectada.
 - Entrada de usuario no validada: ingreso de texto en vez de número para el teléfono o campos vacíos que causan errores de ejecución.
 
+### Estructura del Sistema
+
+El sistema está compuesto por varias clases con responsabilidades bien definidas:
+
+Persona:	Clase abstracta base con nombre y correo
+Contacto:	Hereda de Persona. Incluye teléfono y dirección
+Telefono:	Almacena número y tipo de teléfono
+Direccion:	Contiene calle, ciudad, estado y código postal
+Buscador:	Filtra y localiza contactos según criterios
+Agenda:	Administra la lista de contactos (agregar, eliminar, buscar)
+
+### Cómo usar el programa
+
+1. Compila los archivos .cpp:
+```bash
+g++ main.cpp Contacto.cpp Telefono.cpp Direccion.cpp Buscador.cpp Agenda.cpp -o agenda
+```
+2. Ejecuta el programa:
+./agenda
+
+3. Sigue el menú para agregar, buscar, editar o eliminar contactos.
+
