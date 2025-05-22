@@ -1,6 +1,25 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
+// Clase abstracta base
+class Persona {
+protected:
+    string nombre;
+    string correo;
+public:
+    Persona() {}
+    Persona(string n, string c): nombre(n), correo(c) {}
+
+    virtual void mostrarDatos() = 0; // Método abstracto
+
+    string getNombre() { return nombre; }
+    string getCorreo() { return correo; }
+    void setNombre(string nuevo) { nombre = nuevo; }
+    void setCorreo(string nuevo) { correo = nuevo; }
+};
+
+// Clase para manejar número telefónico
 class Telefono {
 private:
     string numero;
@@ -16,6 +35,7 @@ public:
     void setTipo(string nuevo) { tipo = nuevo; }
 };
 
+// Clase para manejar la dirección de un contacto
 class Direccion {
 private:
     string calle, ciudad, estado, codigoPostal;
@@ -29,39 +49,39 @@ public:
     string getCodigoPostal() { return codigoPostal; }
 };
 
-class Contacto {
+// Clase derivada de Persona
+class Contacto : public Persona {
 private:
-    string nombre;
-    string correo;
     Telefono telefono;
     Direccion direccion;
-
 public:
-    Contacto() {}
-    Contacto(string n, string c, Telefono t, Direccion d): nombre(n), correo(c), telefono(t), direccion(d) {}
+    Contacto() : Persona() {}
 
-    string getNombre() { return nombre; }
-    string getCorreo() { return correo; }
+    // Sobrecarga de constructor con todos los datos
+    Contacto(string n, string c, Telefono t, Direccion d)
+        : Persona(n, c), telefono(t), direccion(d) {}
+
+    // Sobrecarga de constructor con solo nombre y correo
+    Contacto(string n, string c) : Persona(n, c) {}
+
     Telefono getTelefono() { return telefono; }
     Direccion getDireccion() { return direccion; }
 
-    void setNombre(string nuevo) { nombre = nuevo; }
-    void setCorreo(string nuevo) { correo = nuevo; }
     void setTelefono(Telefono t) { telefono = t; }
     void setDireccion(Direccion d) { direccion = d; }
 
-    void mostrarContacto() {
+    // Sobrescritura del método virtual
+    void mostrarDatos() override {
         cout << "Nombre: " << nombre << endl;
         cout << "Correo: " << correo << endl;
-        cout << "Telefono: " << telefono.getNumero() << " (" << telefono.getTipo() << ")" << endl;
-        cout << "Direccion: " << direccion.getCalle() << ", " << direccion.getCiudad()
+        cout << "Teléfono: " << telefono.getNumero() << " (" << telefono.getTipo() << ")" << endl;
+        cout << "Dirección: " << direccion.getCalle() << ", " << direccion.getCiudad()
              << ", " << direccion.getEstado() << ", CP " << direccion.getCodigoPostal() << endl;
         cout << "----------------------------" << endl;
     }
 };
 
-#include <vector>
-
+// Clase que almacena y gestiona los contactos
 class Agenda {
 private:
     vector<Contacto> contactos;
@@ -73,14 +93,14 @@ public:
 
     void mostrarContactos() {
         for (auto& c : contactos)
-            c.mostrarContacto();
+            c.mostrarDatos();
     }
 
     void buscarPorNombre(string nombre) {
         for (auto& c : contactos) {
             if (c.getNombre() == nombre) {
                 cout << "Contacto encontrado:" << endl;
-                c.mostrarContacto();
+                c.mostrarDatos();
                 return;
             }
         }
@@ -115,12 +135,13 @@ public:
     vector<Contacto> getContactos() { return contactos; }
 };
 
+// Clase buscador de contactos por diferentes campos
 class Buscador {
 public:
     void buscarPorCorreo(vector<Contacto> contactos, string correo) {
         for (auto& c : contactos) {
             if (c.getCorreo() == correo) {
-                c.mostrarContacto();
+                c.mostrarDatos();
                 return;
             }
         }
@@ -130,7 +151,7 @@ public:
     void buscarPorTelefono(vector<Contacto> contactos, string telefono) {
         for (auto& c : contactos) {
             if (c.getTelefono().getNumero() == telefono) {
-                c.mostrarContacto();
+                c.mostrarDatos();
                 return;
             }
         }
@@ -138,32 +159,34 @@ public:
     }
 };
 
+// Función principal
 int main() {
     Agenda agenda;
 
-    // Creamos datos de ejemplo
+    // Crear teléfono y dirección
     Telefono tel1("1234567890", "Celular");
     Direccion dir1("Calle Falsa 123", "Ciudad X", "Estado Y", "12345");
+    Telefono tel2("6247627393", "Celular");
+    Direccion dir2("Sol de México", "Ciudad Aries", "Estado CCS", "54321");
+
+    // Crear contactos
     Contacto c1("Juan Perez", "juan@mail.com", tel1, dir1);
+    Contacto c2("Luis Miguel", "luismi@mail.com", tel2, dir2);
 
+    // Agregar contactos a la agenda
     agenda.agregarContacto(c1);
+    agenda.agregarContacto(c2);
 
-    // Mostramos los contactos
+    // Mostrar todos los contactos
     agenda.mostrarContactos();
 
-    // Buscamos por nombre
+    // Buscar y editar contacto
     agenda.buscarPorNombre("Luis Miguel");
-
-    // Editamos el correo
     agenda.editarContacto("Luis Miguel");
 
-    // Eliminamos
-    agenda.eliminarContacto("Luis Miguel");
-
-    // Usamos el buscador
-    Buscador b;
-    b.buscarPorCorreo(agenda.getContactos(), "luismi@mail.com");
+    // Buscar por correo usando el buscador
+    Buscador buscador;
+    buscador.buscarPorCorreo(agenda.getContactos(), "luismi@mail.com");
 
     return 0;
 }
-
