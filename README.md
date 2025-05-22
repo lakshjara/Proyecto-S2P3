@@ -50,3 +50,9 @@ g++ main.cpp Contacto.cpp Telefono.cpp Direccion.cpp Buscador.cpp Agenda.cpp -o 
 
 3. Sigue el menú para agregar, buscar, editar o eliminar contactos.
 
+### Requisitos técnicos
+
+Lenguaje: C++
+Compilador: g++
+Sistema operativo: Windows/Linux/macOS
+
