@@ -53,6 +53,8 @@ g++ main.cpp Contacto.cpp Telefono.cpp Direccion.cpp Buscador.cpp Agenda.cpp -o 
 ### Requisitos técnicos
 
 Lenguaje: C++
+
 Compilador: g++
+
 Sistema operativo: Windows/Linux/macOS
 
