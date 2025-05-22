@@ -32,12 +32,12 @@ Buscador implementa herramientas para localizar contactos eficientemente, apoyan
 
 El sistema está compuesto por varias clases con responsabilidades bien definidas:
 
-Persona:	Clase abstracta base con nombre y correo
-Contacto:	Hereda de Persona. Incluye teléfono y dirección
-Telefono:	Almacena número y tipo de teléfono
-Direccion:	Contiene calle, ciudad, estado y código postal
-Buscador:	Filtra y localiza contactos según criterios
-Agenda:	Administra la lista de contactos (agregar, eliminar, buscar)
+- Persona:	Clase abstracta base con nombre y correo
+- Contacto:	Hereda de Persona. Incluye teléfono y dirección
+- Telefono:	Almacena número y tipo de teléfono
+- Direccion:	Contiene calle, ciudad, estado y código postal
+- Buscador:	Filtra y localiza contactos según criterios
+- Agenda:	Administra la lista de contactos (agregar, eliminar, buscar)
 
 ### Cómo usar el programa
 
