@@ -21,7 +21,7 @@ Cada Contacto está compuesto por un Nombre, Teléfono, Correo y Dirección, lo 
 Buscador implementa herramientas para localizar contactos eficientemente, apoyando la experiencia del usuario.
 
 ### Potenciales errores
-- Error al buscar o eliminar contactos cuando el contacto no existe y el programa intenta acceder a él sin verificar.
+- Error al buscar contactos cuando el contacto no existe y el programa intenta acceder a él sin verificar.
 - Contacto mal creado o incompleto si faltan datos obligatorios como nombre, teléfono o correo.
 - Datos duplicados: se permiten contactos con el mismo nombre o correo, causando conflictos en búsqueda o edición.
 - Fallas de entrada/salida, como error al cargar o guardar datos, o que los datos estén incorrectos o dañados.
@@ -39,11 +39,21 @@ El sistema está compuesto por varias clases con responsabilidades bien definida
 - Buscador:	Filtra y localiza contactos según criterios
 - Agenda:	Administra la lista de contactos (agregar, eliminar, buscar)
 
+### Uso básico
+
+1. Agregar contacto
+Introduce nombre, correo, número y dirección cuando lo pide la consola.
+2. Buscar
+Ingresa cualquier fragmento de texto (nombre, correo o teléfono).
+Si coincide, muestra el primer contacto encontrado, si no, informa que no existe.
+3. Listar
+Imprime todos los contactos guardados con su información formateada.
+
 ### Cómo usar el programa
 
 1. Compila los archivos .cpp:
 ```bash
-g++ main.cpp Contacto.cpp Telefono.cpp Direccion.cpp Buscador.cpp Agenda.cpp -o agenda
+g++ -std=c++17 *.cpp -o agenda
 ```
 2. Ejecuta el programa:
 ./agenda
