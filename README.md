@@ -53,7 +53,7 @@ Imprime todos los contactos guardados con su información formateada.
 
 1. Compila los archivos .cpp:
 ```bash
-g++ -std=c++17 .cpp -o agenda
+g++ -std=c++17 *.cpp -o agenda
 ```
 2. Ejecuta el programa:
 ./agenda
