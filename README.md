@@ -18,6 +18,8 @@ Agregar contacto social: Guarda nombre, teléfono, apodo, dirección y correo.
 Agregar contacto laboral: Guarda nombre, teléfono, empresa y correo.
 Buscar contacto: Por nombre exacto.
 Listar contactos: Imprime todos los contactos guardados, mostrando su información formateada.
+Eliminar contactos: Borra contactos de la memoria. 
+Editar contactos: Permite modificar cualquier dato del contacto. 
 
 ### Potenciales errores
 - Error al buscar contactos cuando el contacto no existe y el programa intenta acceder a él sin verificar.
@@ -34,7 +36,7 @@ El sistema está compuesto por varias clases con funciones definidas:
 - Contacto: Hereda de Persona y es una clase abstracta que agrega el teléfono.
 - ContactoSocial: Hereda de Contacto y añade apodo, dirección y correo electrónico.
 - ContactoLaboral: Hereda de Contacto y añade empresa y correo electrónico.
-- Agenda: Administra un arreglo de contactos (agregar, mostrar, buscar).
+- Agenda: Administra un arreglo de contactos.
 
 ### Uso básico
 
@@ -43,7 +45,9 @@ Elige el tipo (social o laboral) y completa los datos que pide la consola.
 2. Buscar contacto:
 Si coincide, muestra el primer contacto encontrado, si no, informa que no existe.
 3. Listar contactos:
-Imprime en consola todos los contactos con su información completa. 
+Imprime en consola todos los contactos con su información completa.
+4. Borrar y editar contactos:
+Modifica un contacto seleccionado. 
 
 ### Cómo usar el programa
 
@@ -55,7 +59,7 @@ g++ -std=c++17 *.cpp -o agenda
 ```bash
 ./agenda
 ```
-3. Sigue el menú para agregar o buscar contactos.
+3. Sigue el menú para agregar, buscar, editar y eliminar contactos.
 
 ### Requisitos técnicos
 
