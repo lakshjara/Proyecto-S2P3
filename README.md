@@ -51,9 +51,9 @@ Modifica un contacto seleccionado.
 
 ### Cómo usar el programa
 
-1. Compila los archivos .cpp:
+1. Compila los archivos:
 ```bash
-g++ -std=c++17 *.cpp -o agenda
+g++ -std=c++11 main.cpp -o agenda
 ```
 2. Ejecuta el programa:
 ```bash
