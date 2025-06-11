@@ -1,53 +1,49 @@
 # Agenda de Contactos
 
 ### Contexto
-Este proyecto representa el diseño de un sistema de gestión de contactos, simulado mediante clases en programación orientada a objetos con C++. Se basa en la estructura de una agenda digital, similar a las que usamos en nuestros teléfonos o plataformas de correo electrónico.
+Este proyecto representa el diseño de un sistema de gestión de contactos, programación orientada a objetos con C++. Se basa en la estructura de una agenda digital, donde puedes agregar, buscar y listar contactos desde la consola. Muy similar a las que usamos en nuestros teléfonos o plataformas de correo electrónico.
 
-El objetivo principal del sistema es almacenar, organizar y buscar contactos eficientemente, permitiendo asociar a cada contacto información clave como nombre, teléfono, correo electrónico y dirección.
+El objetivo principal del sistema es almacenar, organizar y buscar contactos eficientemente, permitiendo asociar a cada contacto información clave como nombre, teléfono, correo electrónico, dirección y en caso de que sean contactos laborales o sociales se incluyen datos más específicos. 
 
 ### Problemática
-Las personas suelen tener dificultades para gestionar y acceder eficientemente a sus contactos cuando estos se encuentran en formatos desorganizados, dispersos o sin mecanismos de búsqueda inteligentes.
-Este proyecto ayuda a:
-- Recordar información clave de cada persona.
-- Buscar datos específicos de forma rápida.
-- Organizar contactos con múltiples datos sin duplicar o perder información.
+Las personas suelen tener dificultades para gestionar y acceder eficientemente a sus contactos cuando estos se encuentran en formatos desorganizados.
+Este sistema ayuda a:
+- Recordar información clave de cada contacto.
+- Buscar personas por su nombre de forma rápida.
+- Organizar contactos con múltiples datos sin perder información.
 
 ### Funcionalidad
 
-La clase Agenda actúa como el núcleo del sistema, gestionando una colección de contactos.
-
-Cada Contacto está compuesto por un Nombre, Teléfono, Correo y Dirección, lo que permite modularidad y reutilización de código.
-
-Buscador implementa herramientas para localizar contactos eficientemente, apoyando la experiencia del usuario.
+Agregar contacto social: Guarda nombre, teléfono, apodo, dirección y correo.
+Agregar contacto laboral: Guarda nombre, teléfono, empresa y correo.
+Buscar contacto: Por nombre exacto.
+Listar contactos: Imprime todos los contactos guardados, mostrando su información formateada.
 
 ### Potenciales errores
 - Error al buscar contactos cuando el contacto no existe y el programa intenta acceder a él sin verificar.
 - Contacto mal creado o incompleto si faltan datos obligatorios como nombre, teléfono o correo.
 - Datos duplicados: se permiten contactos con el mismo nombre o correo, causando conflictos en búsqueda o edición.
 - Fallas de entrada/salida, como error al cargar o guardar datos, o que los datos estén incorrectos o dañados.
-- Intentar usar una clase que no está correctamente conectada.
 - Entrada de usuario no validada: ingreso de texto en vez de número para el teléfono o campos vacíos que causan errores de ejecución.
 
 ### Estructura del Sistema
 
-El sistema está compuesto por varias clases con responsabilidades bien definidas:
+El sistema está compuesto por varias clases con funciones definidas:
 
-- Persona:	Clase abstracta base con nombre y correo
-- Contacto:	Hereda de Persona. Incluye teléfono y dirección
-- Telefono:	Almacena número y tipo de teléfono
-- Direccion:	Contiene calle, ciudad, estado y código postal
-- Buscador:	Filtra y localiza contactos según criterios
-- Agenda:	Administra la lista de contactos (agregar, eliminar, buscar)
+- Persona: Clase base abstracta que almacena el nombre del contacto.
+- Contacto: Hereda de Persona y es una clase abstracta que agrega el teléfono.
+- ContactoSocial: Hereda de Contacto y añade apodo, dirección y correo electrónico.
+- ContactoLaboral: Hereda de Contacto y añade empresa y correo electrónico.
+- Agenda: Administra un arreglo de contactos (agregar, mostrar, buscar).
 
 ### Uso básico
 
-1. Agregar contacto
-Introduce nombre, correo, número y dirección cuando lo pide la consola.
-2. Buscar
-Ingresa cualquier fragmento de texto (nombre, correo o teléfono).
+1. Agregar contacto:
+Elige el tipo (social o laboral) y completa los datos que pide la consola.
+2. Buscar contacto:
 Si coincide, muestra el primer contacto encontrado, si no, informa que no existe.
-3. Listar
-Imprime todos los contactos guardados con su información formateada.
+3. Listar contactos:
+Imprime en consola todos los contactos con su información completa. 
 
 ### Cómo usar el programa
 
@@ -56,9 +52,10 @@ Imprime todos los contactos guardados con su información formateada.
 g++ -std=c++17 *.cpp -o agenda
 ```
 2. Ejecuta el programa:
+```bash
 ./agenda
-
-3. Sigue el menú para agregar, buscar, editar o eliminar contactos.
+```
+4. Sigue el menú para agregar o buscar contactos.
 
 ### Requisitos técnicos
 
