@@ -55,7 +55,7 @@ g++ -std=c++17 *.cpp -o agenda
 ```bash
 ./agenda
 ```
-4. Sigue el menú para agregar o buscar contactos.
+3. Sigue el menú para agregar o buscar contactos.
 
 ### Requisitos técnicos
 
