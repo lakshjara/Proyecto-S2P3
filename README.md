@@ -40,6 +40,7 @@ El sistema está compuesto por varias clases con funciones definidas:
 
 ### Funciones
 Clase: *Persona*
+
 Descripción:
 Clase base para representar una persona con un nombre.
 Es una clase sencilla que sirve de base para Contacto.
@@ -52,6 +53,7 @@ Métodos:
 - virtual \~Persona(): Destructor virtual.
 
 Clase: *Contacto*
+
 Descripción:
 Clase abstracta que representa un contacto y hereda de Persona.
 Agrega el teléfono y el correo electrónico.
@@ -68,6 +70,7 @@ Métodos:
 - virtual \~Contacto(): Destructor virtual.
 
 Clase: *ContactoSocial*
+
 Descripción:
 Representa un contacto de tipo social, hereda de Contacto.
 Agrega apodo y dirección como atributos.
@@ -79,6 +82,7 @@ Métodos:
 - void editar(): Permite modificar los datos del contacto social.
 
 Clase: *ContactoLaboral*
+
 Descripción:
 Representa un contacto de tipo laboral, hereda de Contacto.
 Agrega empresa como atributo.
@@ -90,6 +94,7 @@ Métodos:
 - void editar(): Permite modificar los datos del contacto laboral.
 
 Clase: *Agenda*
+
 Descripción:
 Clase que administra la lista de contactos (máximo 100).
 Permite agregar, mostrar, buscar, eliminar y editar contactos por nombre.
