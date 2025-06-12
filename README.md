@@ -126,9 +126,13 @@ Modifica un contacto seleccionado.
 ```bash
 g++ -std=c++11 main.cpp -o agenda
 ```
-2. Ejecuta el programa:
+2. Ejecuta el programa en Mac/Linux:
 ```bash
 ./agenda
+```
+Ejecuta el programa en Windows:
+```bash
+agenda.exe
 ```
 3. Sigue el menú para agregar, buscar, editar y eliminar contactos.
 
