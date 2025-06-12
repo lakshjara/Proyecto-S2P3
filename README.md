@@ -104,7 +104,6 @@ Clase: Agenda
     - void eliminar(string nombre): Elimina un contacto por nombre.
     - void editar(string nombre): Edita un contacto por nombre.
 
-
 ### Uso básico
 
 1. Agregar contacto:
