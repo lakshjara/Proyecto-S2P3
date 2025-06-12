@@ -38,6 +38,73 @@ El sistema está compuesto por varias clases con funciones definidas:
 - ContactoLaboral: Hereda de Contacto y añade empresa y correo electrónico.
 - Agenda: Administra un arreglo de contactos.
 
+### Funciones
+Clase: Persona
+    Descripción:
+    Clase base para representar una persona con un nombre.
+    Es una clase sencilla que sirve de base para Contacto.
+    Permite obtener y modificar el nombre.
+
+    Métodos:
+    - Persona(string n): Constructor que recibe el nombre.
+    - string getNombre(): Devuelve el nombre de la persona.
+    - void setNombre(string n): Cambia el nombre de la persona.
+    - virtual ~Persona(): Destructor virtual.
+
+Clase: Contacto
+    Descripción:
+    Clase abstracta que representa un contacto y hereda de Persona.
+    Agrega el teléfono y el correo electrónico.
+    Declara métodos virtuales puros para mostrar y editar, que deben ser implementados por clases hijas.
+
+    Métodos:
+    - Contacto(string n, string t, string c): Constructor.
+    - string getTelefono(): Devuelve el teléfono.
+    - void setTelefono(string t): Cambia el teléfono.
+    - string getCorreo(): Devuelve el correo.
+    - void setCorreo(string c): Cambia el correo.
+    - virtual void mostrar() = 0: Debe mostrar información del contacto.
+    - virtual void editar() = 0: Debe permitir editar los datos.
+    - virtual ~Contacto(): Destructor virtual.
+
+Clase: ContactoSocial
+    Descripción:
+    Representa un contacto de tipo social, hereda de Contacto.
+    Agrega apodo y dirección como atributos.
+    Implementa los métodos mostrar y editar para este tipo de contacto.
+
+    Métodos:
+    - ContactoSocial(string n, string t, string c, string a, string d): Constructor.
+    - void mostrar(): Muestra todos los datos del contacto social.
+    - void editar(): Permite modificar los datos del contacto social.
+
+Clase: ContactoLaboral
+    Descripción:
+    Representa un contacto de tipo laboral, hereda de Contacto.
+    Agrega empresa como atributo.
+    Implementa los métodos mostrar y editar para este tipo de contacto.
+
+    Métodos:
+    - ContactoLaboral(string n, string t, string c, string e): Constructor.
+    - void mostrar(): Muestra todos los datos del contacto laboral.
+    - void editar(): Permite modificar los datos del contacto laboral.
+
+Clase: Agenda
+    Descripción:
+    Clase que administra la lista de contactos (máximo 100).
+    Permite agregar, mostrar, buscar, eliminar y editar contactos por nombre.
+
+    Métodos:
+    - Agenda(): Constructor, inicia la agenda vacía.
+    - ~Agenda(): Destructor, libera memoria de los contactos.
+    - void agregar(Contacto* c): Agrega un nuevo contacto.
+    - void mostrarTodos(): Muestra todos los contactos.
+    - Contacto* buscar(string nombre): Busca contacto por nombre.
+    - int buscarPos(string nombre): Devuelve la posición del contacto (o -1).
+    - void eliminar(string nombre): Elimina un contacto por nombre.
+    - void editar(string nombre): Edita un contacto por nombre.
+
+
 ### Uso básico
 
 1. Agregar contacto:
