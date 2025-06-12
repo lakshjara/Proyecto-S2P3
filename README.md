@@ -39,7 +39,7 @@ El sistema está compuesto por varias clases con funciones definidas:
 - Agenda: Administra un arreglo de contactos.
 
 ### Funciones
-Clase: Persona
+Clase: *Persona*
 Descripción:
 Clase base para representar una persona con un nombre.
 Es una clase sencilla que sirve de base para Contacto.
@@ -51,7 +51,7 @@ Métodos:
 - void setNombre(string n): Cambia el nombre de la persona.
 - virtual \~Persona(): Destructor virtual.
 
-Clase: Contacto
+Clase: *Contacto*
 Descripción:
 Clase abstracta que representa un contacto y hereda de Persona.
 Agrega el teléfono y el correo electrónico.
@@ -67,7 +67,7 @@ Métodos:
 - virtual void editar() = 0: Debe permitir editar los datos.
 - virtual \~Contacto(): Destructor virtual.
 
-Clase: ContactoSocial
+Clase: *ContactoSocial*
 Descripción:
 Representa un contacto de tipo social, hereda de Contacto.
 Agrega apodo y dirección como atributos.
@@ -78,7 +78,7 @@ Métodos:
 - void mostrar(): Muestra todos los datos del contacto social.
 - void editar(): Permite modificar los datos del contacto social.
 
-Clase: ContactoLaboral
+Clase: *ContactoLaboral*
 Descripción:
 Representa un contacto de tipo laboral, hereda de Contacto.
 Agrega empresa como atributo.
@@ -89,7 +89,7 @@ Métodos:
 - void mostrar(): Muestra todos los datos del contacto laboral.
 - void editar(): Permite modificar los datos del contacto laboral.
 
-Clase: Agenda
+Clase: *Agenda*
 Descripción:
 Clase que administra la lista de contactos (máximo 100).
 Permite agregar, mostrar, buscar, eliminar y editar contactos por nombre.
