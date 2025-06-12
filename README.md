@@ -127,6 +127,7 @@ Modifica un contacto seleccionado.
 g++ -std=c++11 main.cpp -o agenda
 ```
 2. Ejecuta el programa
+
 En Mac/Linux:
 ```bash
 ./agenda
