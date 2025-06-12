@@ -126,11 +126,12 @@ Modifica un contacto seleccionado.
 ```bash
 g++ -std=c++11 main.cpp -o agenda
 ```
-2. Ejecuta el programa en Mac/Linux:
+2. Ejecuta el programa
+En Mac/Linux:
 ```bash
 ./agenda
 ```
-Ejecuta el programa en Windows:
+En Windows:
 ```bash
 agenda.exe
 ```
